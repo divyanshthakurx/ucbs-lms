@@ -15,14 +15,16 @@ const UserNav = () => {
   const navigate = useNavigate()
   const [curUser, setCurUser] = useState({});
   const {Users} = useContext(UsersContext);
-  const user = Users && Users.find((user) => user.user_id == localStorage.getItem('currentuserCreds'));
+  const user = Users && Users.find((user) => {
+    return user.user_id.toString() === localStorage.getItem('currentuserCreds')
+  });
   const some = user && getUser(user.$id);
 
   useEffect(() => {
       some && some.then((result) => setCurUser(result));
   }, [user]);
 
-  const {name, roll_no, course, year, user_id} = curUser;
+  const {name, course, year, user_id} = curUser;
   const handleLogout = (e) => {
     e.preventDefault();
     localStorage.setItem('currentuser', 'false');
@@ -73,8 +75,9 @@ const UserNav = () => {
                       </svg>
                       <span className="sr-only">Toggle sidebar</span>
                     </button>
-                    <a href="#" className="flex items-center justify-between mr-4">
-                      <UcbsLogo className="w-8 h-8 rounded-full hidden lg:block"/></a>
+                      <div className="flex items-center justify-between mr-4">
+                      <UcbsLogo className="w-8 h-8 rounded-full hidden lg:block"/>
+                      </div>
                       <div className="self-center text-2xl font-semibold whitespace-nowrap text-black">UCBS Library </div>
                   </div>
 
@@ -197,12 +200,12 @@ const UserNav = () => {
                   </Link>
                 </li>
                 <li>
-                  <a href="#" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-red-300 dark:hover:bg-gray-700 group">
+                  <div className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-red-300 dark:hover:bg-gray-700 group">
                       <svg className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
                           <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"/>
                       </svg>
                       <button onClick={handleLogout}><span className="flex-1 ms-3 whitespace-nowrap">Log out</span></button>
-                  </a>
+                  </div>
                 </li>
                               
               </ul>
@@ -229,8 +232,7 @@ const UserNav = () => {
           </aside>
 
         </div>
-
-          <Outlet/>
+          {!curUser ? <h1>Loading...</h1> : <Outlet context={[curUser]}/>}
 
           <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
       </>

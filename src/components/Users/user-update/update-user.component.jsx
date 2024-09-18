@@ -10,7 +10,7 @@ const UpdateNewUser = () => {
         setselectedUser(clickedUser);
     }, [clickedUser]);
 
-    const {user_id, password, name, roll_no, course, year, book} = selectedUser;
+    const {user_id, password, name, roll_no, course, year} = selectedUser;
 
     const handleChange = (e) => {
         const {name, value} = e.target;

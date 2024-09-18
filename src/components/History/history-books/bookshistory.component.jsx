@@ -6,7 +6,7 @@ const UserBooksHistory = () => {
 
     useEffect(() => {
         listBookHistory().then((data) => setBookHistory(data.documents));
-    }, []);
+    });
 
     return(
         <>

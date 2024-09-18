@@ -1,17 +1,7 @@
-import { useContext, useState, useEffect } from "react";
-import { UsersHistoryContext } from '../../context/usershistory.context';
-
 const UserNotifications = () => {
-    const { listUsersHistory } = useContext(UsersHistoryContext);
-    const [usersHistory, setUsersHistory] = useState();
-
-    useEffect(() => {
-        listUsersHistory().then((data) => setUsersHistory(data.documents));
-    }, []);
 
     return(
         <>
-
             <main className="pb-4 px-4 md:ml-64 h-full pt-20">
 
                 <div className="mb-4 h-full">

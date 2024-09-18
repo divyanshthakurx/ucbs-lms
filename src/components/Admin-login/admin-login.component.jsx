@@ -35,7 +35,7 @@ const AdminLogIn = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const admin = admins.find((admin) => admin.admin_id == admin_id && admin.password == password);
+    const admin = admins.find((admin) => admin.admin_id.toString() === admin_id && admin.password.toString() === password);
     if (!admin) {
       alert("Invalid Credentials");
     } else {

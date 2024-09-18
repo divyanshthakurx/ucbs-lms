@@ -35,7 +35,7 @@ const UserLogIn = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const User = Users.find((user) => user.user_id == user_id && user.password == password);
+    const User = Users.find((user) => user.user_id.toString() === user_id && user.password.toString() === password);
     if (!User) {
       alert("Invalid Credentials");
     } else {

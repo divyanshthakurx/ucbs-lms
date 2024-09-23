@@ -13,7 +13,13 @@ module.exports = {
       },
       animation: {
         'ping-slow': 'ping 2s infinite',
-        'infinite-scroll': 'infinite-scroll 30s linear infinite',
+        'scroll': 'scroll 30s linear infinite',
+      },
+      keyframes: {
+        scroll: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
       },
       backgroundImage: {
       'login-bg': "url('./assets/img/log-in/main-bg.jpg')",

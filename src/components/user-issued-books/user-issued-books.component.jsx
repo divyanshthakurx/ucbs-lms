@@ -27,7 +27,7 @@ const UserIssuedBooks = () => {
                                     <div className="w-full grid grid-cols-1 justify-items-center content-center gap-x-4 gap-y-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xxl:grid-cols-5">
                                     {curUser ? (curUser.book ? curUser.book.map((book) => (
                                     <ShowBook key={book.s_no} book_item={book}></ShowBook>
-                                    )) : <p>No books issued</p>) : <p>Bitch...</p>}
+                                    )) : <p>No books issued</p>) : <p>Loading...</p>}
                                     </div> 
                                 </div>
             

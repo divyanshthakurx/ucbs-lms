@@ -9,6 +9,9 @@ import { UsersProvider } from './context/users.context';
 import { UsersHistoryProvider } from './context/usershistory.context';
 import { BooksHistoryProvider } from './context/bookshistory.context';
 import { AdminProvider } from './context/admin.context';
+// index.js or App.js
+import 'flowbite/dist/flowbite.min.js';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
